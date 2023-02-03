@@ -1,0 +1,142 @@
+{
+  "namespaces": [
+    "public"
+  ],
+  "name": "public",
+  "tables": [
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        }
+      },
+      "name": "media",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "media_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "topics": {
+          "name": "topics",
+          "type": "jsonb",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "json"
+        }
+      },
+      "name": "customization",
+      "schema": "public",
+      "indexes": [
+        {
+          "keyName": "customization_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {}
+    },
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "mappedType": "string"
+        },
+        "published_id": {
+          "name": "published_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "string"
+        }
+      },
+      "name": "course",
+      "schema": "public",
+      "indexes": [
+        {
+          "columnNames": [
+            "published_id"
+          ],
+          "composite": false,
+          "keyName": "course_published_id_index",
+          "primary": false,
+          "unique": false
+        },
+        {
+          "columnNames": [
+            "published_id"
+          ],
+          "composite": false,
+          "keyName": "course_published_id_unique",
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "course_pkey",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {
+        "course_published_id_foreign": {
+          "constraintName": "course_published_id_foreign",
+          "columnNames": [
+            "published_id"
+          ],
+          "localTableName": "public.course",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.customization",
+          "deleteRule": "set null",
+          "updateRule": "cascade"
+        }
+      }
+    }
+  ]
+}

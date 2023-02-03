@@ -1,0 +1,48 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.101.0/containers/javascript-node-12
+{
+	"name": "Test Service",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "test-service",
+	"workspaceFolder": "/workspace",
+
+	// Set *default* container specific settings.json values on container create.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"gruntfuggly.todo-tree"
+			]
+		}
+	},
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.profiles.linux": {
+			"bash": {
+				"path": "/bin/bash",
+				"args": [
+					"--rcfile",
+					"/workspace/.devcontainer/.bashrc"
+				],
+				"icon": "terminal-bash",
+				"color": "terminal.ansiGreen"
+			}
+		},
+		"terminal.integrated.defaultProfile.linux": "bash"
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "yarn install",
+
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "node"
+
+	// "mounts": [
+    //     "source=node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+    // ]
+}
