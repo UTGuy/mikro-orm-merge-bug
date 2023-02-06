@@ -43,8 +43,8 @@
           "nullable": false,
           "mappedType": "string"
         },
-        "topics": {
-          "name": "topics",
+        "_topics": {
+          "name": "_topics",
           "type": "jsonb",
           "unsigned": false,
           "autoincrement": false,
@@ -80,6 +80,15 @@
           "nullable": false,
           "mappedType": "string"
         },
+        "draft_id": {
+          "name": "draft_id",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "mappedType": "string"
+        },
         "published_id": {
           "name": "published_id",
           "type": "varchar(255)",
@@ -93,6 +102,24 @@
       "name": "course",
       "schema": "public",
       "indexes": [
+        {
+          "columnNames": [
+            "draft_id"
+          ],
+          "composite": false,
+          "keyName": "course_draft_id_index",
+          "primary": false,
+          "unique": false
+        },
+        {
+          "columnNames": [
+            "draft_id"
+          ],
+          "composite": false,
+          "keyName": "course_draft_id_unique",
+          "primary": false,
+          "unique": true
+        },
         {
           "columnNames": [
             "published_id"
@@ -123,6 +150,19 @@
       ],
       "checks": [],
       "foreignKeys": {
+        "course_draft_id_foreign": {
+          "constraintName": "course_draft_id_foreign",
+          "columnNames": [
+            "draft_id"
+          ],
+          "localTableName": "public.course",
+          "referencedColumnNames": [
+            "id"
+          ],
+          "referencedTableName": "public.customization",
+          "deleteRule": "set null",
+          "updateRule": "cascade"
+        },
         "course_published_id_foreign": {
           "constraintName": "course_published_id_foreign",
           "columnNames": [

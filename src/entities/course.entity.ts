@@ -13,5 +13,9 @@ export class Course {
 
     @Index()
     @OneToOne({ entity: () => Customization })
+    draft?: Customization;
+
+    @Index()
+    @OneToOne({ entity: () => Customization })
     published?: Customization;
 }

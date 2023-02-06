@@ -12,5 +12,13 @@ export class Customization {
     id!: string;
 
     @Embedded(() => Topic, { array: true })
-    topics?: Topic[] = [];
+    private _topics?: Topic[] = [];
+
+    get topics() {
+        return [...(this._topics || [])];
+    }
+
+    setTopics(topics: Topic[] = []) {
+        this._topics = [...topics];
+    }
 }
