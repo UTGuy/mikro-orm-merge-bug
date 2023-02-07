@@ -1,6 +1,6 @@
 import { MikroORM } from '@mikro-orm/postgresql';
 import { DatabaseSeeder } from '../seeders/DatabaseSeeder';
-import { Course, Customization, Topic } from '../entities';
+import { Course } from '../entities';
 import config from '../mikro-orm.config';
 
 let orm: MikroORM;

@@ -1,5 +1,4 @@
-import { RequestContext } from '@mikro-orm/core';
-import { EntityManager, MikroORM } from '@mikro-orm/postgresql';
+import { MikroORM } from '@mikro-orm/postgresql';
 import { Course } from './entities';
 import config from './mikro-orm.config';
 
