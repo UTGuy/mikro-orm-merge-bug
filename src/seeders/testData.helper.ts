@@ -32,10 +32,9 @@ export class TestDataHelper {
     }
 
     public createIntroTopic() {
-        const topic = new Topic("Introduction", TopicLocation.Intro);
+        const topic = new Topic();
         const videoPage = new Page();
-        const textPage = new Page();
-        topic.setPages([videoPage, textPage]);
+        topic.setPages([videoPage]);
         return topic;
     }
 }
