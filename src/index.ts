@@ -7,7 +7,7 @@ async function main() {
     const orm = await MikroORM.init(config);
     const em = orm.em.fork();
     const repo = em.getRepository(Course);
-    const results = await repo.findAndCount(null, {
+    const results = await repo.find({}, {
         populate: true
     });
     // results.forEach(value => {
