@@ -15,8 +15,8 @@
           "nullable": false,
           "mappedType": "string"
         },
-        "_topics": {
-          "name": "_topics",
+        "topics": {
+          "name": "topics",
           "type": "jsonb",
           "unsigned": false,
           "autoincrement": false,

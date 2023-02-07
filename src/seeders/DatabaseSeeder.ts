@@ -18,7 +18,7 @@ export class DatabaseSeeder extends Seeder {
     const topic = new Topic();
 
     const customization = new Customization();
-    customization.setTopics([topic]);
+    customization.topics = [topic];
     em.persist(customization);
 
     return customization;
