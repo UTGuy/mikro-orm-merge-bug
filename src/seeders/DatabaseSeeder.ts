@@ -9,11 +9,11 @@ export class DatabaseSeeder extends Seeder {
     const helper = new TestDataHelper(em);
 
     const course1 = new Course();
-    course1.published = helper.createCustomization(`customization-1-1`);
+    course1.published = helper.createCustomization();
     em.persist(course1)
 
     const course2 = new Course();
-    course2.draft = helper.createCustomization(`customization-1-2`);
+    course2.draft = helper.createCustomization();
     em.persist(course2)
   }
 }

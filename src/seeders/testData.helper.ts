@@ -16,25 +16,15 @@ export class TestDataHelper {
     constructor(private readonly em: EntityManager) {
     }
 
-    public save(course: Course) {
-        this.em.persist(course);
-    }
-
-    public createCustomization(id: string) {
-        const customization = new Customization();
-        if (id)
-            IdHelper.setId(customization, id);
-        customization.setTopics([
-            this.createIntroTopic()
-        ]);
-        this.em.persist(customization);
-        return customization;
-    }
-
-    public createIntroTopic() {
+    public createCustomization() {
         const topic = new Topic();
-        const videoPage = new Page();
-        topic.setPages([videoPage]);
-        return topic;
+        const page = new Page();
+        topic.setPages([page]);
+
+        const customization = new Customization();
+        customization.setTopics([topic]);
+        this.em.persist(customization);
+        
+        return customization;
     }
 }
