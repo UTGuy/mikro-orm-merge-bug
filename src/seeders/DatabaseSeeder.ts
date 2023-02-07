@@ -15,10 +15,10 @@ export class DatabaseSeeder extends Seeder {
   }
 
   public createCustomization(em: EntityManager) {
-    const page = new Page();
+    //const page = new Page();
 
     const topic = new Topic();
-    topic.setPages([page]);
+    //topic.setPages([page]);
 
     const customization = new Customization();
     customization.setTopics([topic]);

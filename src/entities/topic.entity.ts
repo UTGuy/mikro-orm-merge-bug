@@ -3,10 +3,10 @@ import { Page } from "./page.entity";
 
 @Embeddable()
 export class Topic {
-    constructor(
-    ) {
-        this._pages = [];
-    }
+    // constructor(
+    // ) {
+    //     this._pages = [];
+    // }
 
     @Property()
     private _name: string;
@@ -15,14 +15,14 @@ export class Topic {
         return this._name;
     }
 
-    @Embedded(() => Page, { array: true })
-    private _pages: Page[] = [];
+    // @Embedded(() => Page, { array: true })
+    // private _pages: Page[] = [];
 
-    get pages() {
-        return [...(this._pages || [])];
-    }
+    // get pages() {
+    //     return [...(this._pages || [])];
+    // }
 
-    setPages(pages: Page[] = []) {
-        this._pages = [...pages];
-    }
+    // setPages(pages: Page[] = []) {
+    //     this._pages = [...pages];
+    // }
 }
