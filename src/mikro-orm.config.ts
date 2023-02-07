@@ -1,11 +1,11 @@
 import { FlushMode, Options } from "@mikro-orm/core";
 import { PostgreSqlDriver } from "@mikro-orm/postgresql";
 import { TsMorphMetadataProvider } from "@mikro-orm/reflection";
-import { Course, Customization, Topic, Page } from './entities';
+import { Course, Customization, Topic } from './entities';
 
 const config: Options<PostgreSqlDriver> = {
     metadataProvider: TsMorphMetadataProvider,
-    entities: [Course, Customization, Topic, Page],
+    entities: [Course, Customization, Topic],
     type: 'postgresql',
     host: process.env.DB_CONNECTION_HOST,
     port: parseInt(process.env.DB_CONNECTION_PORT!),
