@@ -1,6 +1,4 @@
-import { Embeddable, Embedded, Enum, ManyToOne, Property, t } from "@mikro-orm/core";
-import { IdCreator } from "./idCreator";
-import { Media } from "./media.entity";
+import { Embeddable, Property } from "@mikro-orm/core";
 
 @Embeddable()
 export class Page {

@@ -1,6 +1,6 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
-import { Customization, Page, Topic, Media, Course } from '../entities';
+import { Course } from '../entities';
 import { TestDataHelper } from './testData.helper';
 
 export class DatabaseSeeder extends Seeder {
