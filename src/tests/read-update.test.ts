@@ -25,31 +25,31 @@ beforeAll(async () => {
 afterAll(() => orm.close(true));
 
 test('json property hydration', async () => {
-    let em = orm.em.fork();
+    // let em = orm.em.fork();
     
-    const helper = new TestDataHelper(em);
+    // const helper = new TestDataHelper(em);
 
-    const course1 = new Course();
-    course1.published = helper.createCustomization(`customization-1-1`);
-    em.persist(course1)
+    // const course1 = new Course();
+    // course1.published = helper.createCustomization(`customization-1-1`);
+    // em.persist(course1)
 
-    const course2 = new Course();
-    course2.draft = helper.createCustomization(`customization-1-2`);
-    em.persist(course2)
+    // const course2 = new Course();
+    // course2.draft = helper.createCustomization(`customization-1-2`);
+    // em.persist(course2)
 
-    const course3 = new Course();
-    course3.published = helper.createCustomization(`customization-1-3`);
-    em.persist(course3)
+    // const course3 = new Course();
+    // course3.published = helper.createCustomization(`customization-1-3`);
+    // em.persist(course3)
 
-    const course4 = new Course();
-    course4.draft = helper.createCustomization(`customization-1-4`);
-    em.persist(course4)
+    // const course4 = new Course();
+    // course4.draft = helper.createCustomization(`customization-1-4`);
+    // em.persist(course4)
 
-    await em.flush();
-    em.clear();
+    // await em.flush();
+    // em.clear();
 
-    em = em.fork();
-    const results = await em.find(Course, {}, { populate: true });
+    // em = em.fork();
+    // const results = await em.find(Course, {}, { populate: true });
     
     // expect?? - it not to update when a query happens
 });

@@ -15,13 +15,5 @@ export class DatabaseSeeder extends Seeder {
     const course2 = new Course();
     course2.draft = helper.createCustomization(`customization-1-2`);
     em.persist(course2)
-
-    const course3 = new Course();
-    course3.published = helper.createCustomization(`customization-1-3`);
-    em.persist(course3)
-
-    const course4 = new Course();
-    course4.draft = helper.createCustomization(`customization-1-4`);
-    em.persist(course4)
   }
 }

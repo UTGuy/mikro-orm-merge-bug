@@ -4,9 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "migration:init": "rm -rf ./src/migrations && rm -rf ./temp && npx mikro-orm migration:create --initial",
     "migration:create": "npx mikro-orm migration:create",
     "seed": "npx mikro-orm migration:fresh --seed=DatabaseSeeder",
     "start": "ts-node ./src/index.ts",
+    "start:seed": "yarn seed && yarn start",
     "test": "jest"
   },
   "dependencies": {
