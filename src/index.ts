@@ -10,9 +10,6 @@ async function main() {
     const results = await repo.find({}, {
         populate: true
     });
-    // results.forEach(value => {
-    //     console.log(JSON.stringify(value));
-    // })
     await em.flush();
     await orm.close(true);
 }
