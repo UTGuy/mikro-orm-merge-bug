@@ -1,11 +1,9 @@
 import { Migration } from '@mikro-orm/migrations';
 
-export class Migration20230214231045 extends Migration {
+export class Migration20230331161207 extends Migration {
 
   async up(): Promise<void> {
-    this.addSql('create table "media" ("id" varchar(255) not null, "name" varchar(255) not null, constraint "media_pkey" primary key ("id"));');
-
-    this.addSql('create table "customization" ("id" varchar(255) not null, "topics" jsonb null, constraint "customization_pkey" primary key ("id"));');
+    this.addSql('create table "customization" ("id" varchar(255) not null, "topics" jsonb not null, constraint "customization_pkey" primary key ("id"));');
 
     this.addSql('create table "course" ("id" varchar(255) not null, "draft_id" varchar(255) null, "published_id" varchar(255) null, constraint "course_pkey" primary key ("id"));');
     this.addSql('create index "course_draft_id_index" on "course" ("draft_id");');

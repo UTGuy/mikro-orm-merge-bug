@@ -1,15 +1,16 @@
-import { Embeddable, ManyToOne, Property } from "@mikro-orm/core";
-import { Media } from "./media.entity";
+import { Embeddable, Embedded, Property } from "@mikro-orm/core";
+import { IdCreator } from "./idCreator";
+import { Page } from "./page.entity";
 
 @Embeddable()
 export class Topic {
-    @Property()
-    private _name: string;
-
-    get name(): string {
-        return this._name;
+    constructor() {
+        this.id = IdCreator.create();
     }
 
-    @ManyToOne({ entity: () => Media, nullable: true, eager: true })
-    video?: Media;
+    @Property()
+    id!: string;
+
+    @Embedded(() => Page, { array: true })
+    public pages: Page[] = [];
 }

@@ -1,6 +1,6 @@
 import { EntityManager } from '@mikro-orm/core';
 import { Seeder } from '@mikro-orm/seeder';
-import { Course, Customization, Topic } from '../entities';
+import { Course, Customization, Topic, Page } from '../entities';
 
 export class DatabaseSeeder extends Seeder {
 
@@ -15,10 +15,22 @@ export class DatabaseSeeder extends Seeder {
   }
 
   public createCustomization(em: EntityManager) {
+    const page = new Page();
+    page.setAttestations([
+      "Att1",
+      "Att2"
+    ])
+    
     const topic = new Topic();
+    topic.pages = [
+      page
+    ]
 
     const customization = new Customization();
-    customization.topics = [topic];
+    customization.topics = [
+      topic
+    ];
+
     em.persist(customization);
 
     return customization;

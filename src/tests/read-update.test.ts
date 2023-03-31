@@ -1,13 +1,15 @@
-import { MikroORM } from '@mikro-orm/postgresql';
+import { MikroORM, PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { DatabaseSeeder } from '../seeders/DatabaseSeeder';
 import { Course } from '../entities';
 import config from '../mikro-orm.config';
+import { PostgreSqlMikroORM } from '@mikro-orm/postgresql/PostgreSqlMikroORM';
 
 let orm: MikroORM;
 let timeout = 5 * 60 * 1000;
 
 beforeAll(async () => {
-    orm = await MikroORM.init(config);
+    let init = await MikroORM.init(config as any);
+    orm = init as any;
     const seeder = orm.getSeeder();
     await orm.getSchemaGenerator().refreshDatabase();
     await seeder.seed(DatabaseSeeder);

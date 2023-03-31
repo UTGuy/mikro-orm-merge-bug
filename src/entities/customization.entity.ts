@@ -12,5 +12,5 @@ export class Customization {
     id!: string;
 
     @Embedded(() => Topic, { array: true })
-    public topics?: Topic[] = [];
+    public topics: Topic[] = [];
 }
