@@ -10,16 +10,8 @@ export class Page {
     @Property()
     id!: string;
     
-    private _attestationValue: string[];
-
     @Property({ type: "json" })
-    private get _attestations(): string[] {
-        return this._attestationValue;
-    }
-
-    private set _attestations(value: string[]) {
-        this._attestationValue = value;
-    }
+    private _attestations: string[];
 
     get attestations() {
         return this._attestations;
